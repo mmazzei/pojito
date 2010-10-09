@@ -1,0 +1,38 @@
+<project name="pojitoXmlConverter" default="usage">
+	<property name="project.name" value="pojitoXMLConverter" />
+	<property name="src" value="src"/>
+	<property name="build" value="classes"/>
+	<property name="dist" value="dist"/>
+	<property name="libs" value="lib"/>
+
+	<target name="usage">
+		<echo message="-----------------------------------------------------"/>
+		<echo message="               PojitoXMLConverter"/>
+		<echo message="-----------------------------------------------------"/>
+		<echo message="Objetivos provistos por este script"/>
+		<echo message=" compile -> Compila el proyecto."/>
+		<echo message=" build   -> Prepara el archivo JAR y lo deja en ${dist}."/>
+		<echo message=" clean   -> Elimina los archivos generados por el script."/>
+	</target>
+
+	<target name="compile" description="Prepara los bytecode de todas las clases.">
+		<mkdir dir="${build}" />
+		<javac srcdir="${src}" destdir="${build}">
+			<classpath>
+				<fileset dir="${libs}">
+					<include name="**/*.jar" />
+				</fileset>
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="build" depends="compile" description="Utiliza el resultado de la compilación para generar un archivo JAR." >
+		<mkdir dir="${dist}" />
+		<jar jarfile="${dist}/${project.name}.jar" basedir="${build}" />
+	</target>
+
+	<target name="clean" description="Limpia los directorios y archivos creados por este script.">
+		<delete dir="${build}" />
+		<delete dir="${dist}" />
+	</target>
+</project>
