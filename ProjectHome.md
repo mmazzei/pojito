@@ -1,0 +1,4 @@
+Pojito surgió para poder generar archivos XML a partir de plantillas fácilmente.
+La idea era que incluso los analistas pudieran escribir estas plantillas y pasarlas a los desarrolladores que, a simple vista, sabrían qué objetos utilizar para generar el XML concreto.
+
+Fue utilizado por primera vez para generar el cuerpo de mensajes JMS para enviar a distintos servicios de aplicaciones legacy. En este caso, los desarrolladores debían recibir como parte de la documentación el template de los XML a enviar ya que, dada la organización de los mismos, todos eran validados con el mismo XSD y este no bastaba para conocer el formato de aquellos.
